@@ -8,7 +8,7 @@ async function boostrap() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.get("/", (req, res) => {
+  app.get("/test", (req, res) => {
     console.log(req.body);
     res.send({ hey: "hey" });
   });

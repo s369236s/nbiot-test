@@ -1,26 +1,18 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "esnext",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["node" /*"@intlify/vite-plugin-vue-i18n/client"*/],
-    "incremental": false,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "noImplicitAny": false,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
+    "target": "es2017",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
+      "*": ["node_modules/*", "src/types/*"],
       "@/*": ["src/*"]
-    },
-    "outDir": "./dist"
+    }
   },
-  "include": ["src/**/*.ts", "src/*.ts", "src/**/*.d.ts"]
+  "include": ["src/**/*"]
 }

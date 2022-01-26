@@ -27,6 +27,11 @@ app.get("/", (req, res) => {
   res.send({ hey: "hey" });
 });
 
+app.post("/", (req, res) => {
+  console.log(req.body);
+  res.send({ hey: "hey" });
+});
+
 app.listen(PORT, () => {
   console.log(PORT);
 });

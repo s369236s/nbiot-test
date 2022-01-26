@@ -20,6 +20,13 @@ app.get("/test", (req, res) => {
   res.send({ hey: "hey" });
 });
 
+app.get("/", (req, res) => {
+  console.log(req.params);
+  console.log(req.query);
+
+  res.send({ hey: "hey" });
+});
+
 app.listen(PORT, () => {
   console.log(PORT);
 });

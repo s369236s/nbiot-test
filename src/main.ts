@@ -3,11 +3,14 @@ import net from "net";
 const PORT = parseInt(process.env.PORT) || 8080;
 
 var server = net.createServer(function (socket) {
-  socket.write("Echo server\r\n");
   socket.on("data", (msg) => {
-    console.log(msg.toString());
-    console.log(msg);
-    console.log(msg.toJSON());
+    try {
+      socket.write("Echo server\r\n");
+      console.log(msg.toString());
+      console.log(msg);
+    } catch (err) {
+      console.log(err);
+    }
   });
   socket.pipe(socket);
 });

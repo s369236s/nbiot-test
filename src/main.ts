@@ -10,7 +10,7 @@ var server = net.createServer(function (socket) {
   socket.pipe(socket);
 });
 
-server.listen(PORT);
+server.listen(PORT, () => console.log(`port ${PORT}`));
 // import express from "express";
 
 // const app = express();

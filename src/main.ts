@@ -6,8 +6,11 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      console.log(msg.toString("hex"));
-      console.log(msg.toString("binary"));
+      let i = 0;
+      console.log(msg.toString("hex"), (i += 1));
+      console.log(msg.toString("binary"), (i += 1));
+      console.log(msg.toString("base64"), (i += 1));
+      console.log(msg.toString("ascii"), (i += 1));
       console.log(msg);
     } catch (err) {
       console.log(err);

@@ -6,7 +6,9 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      console.log(msg.toJSON().data);
+      const json = JSON.stringify(msg);
+
+      console.log(json);
     } catch (err) {
       console.log(err);
     }

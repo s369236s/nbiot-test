@@ -8,10 +8,6 @@ var server = net.createServer(function (socket) {
       socket.write("Echo server\r\n");
       console.log(msg.toString());
       const buf1 = msg;
-      for (let i = 0; i < msg.length; i++) {
-        // 97 is the decimal ASCII value for 'a'.
-        buf1[i] = i + 97;
-      }
       console.log(buf1.toString("utf8"));
     } catch (err) {
       console.log(err);

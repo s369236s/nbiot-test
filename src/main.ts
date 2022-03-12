@@ -6,21 +6,13 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      const i: any = [
-        "ascii",
-        "base64",
-        "binary",
-        "hex",
-        "latin1",
-        "ucs-2",
-        "utf-8",
-        "utf16le",
-        "utf8",
-      ];
-
-      i.map((b, idx) => console.log(msg.toString(b), idx));
-
-      console.log(msg);
+      console.log(msg.toString());
+      const buf1 = msg;
+      for (let i = 0; i < msg.length; i++) {
+        // 97 is the decimal ASCII value for 'a'.
+        buf1[i] = i + 97;
+      }
+      console.log(buf1.toString("utf8"));
     } catch (err) {
       console.log(err);
     }

@@ -6,19 +6,7 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      let i: [
-        | "ascii"
-        | "utf8"
-        | "utf-8"
-        | "utf16le"
-        | "ucs2"
-        | "ucs-2"
-        | "base64"
-        | "base64url"
-        | "latin1"
-        | "binary"
-        | "hex"
-      ] = [
+      const i = [
         "ascii",
         "base64",
         "base64url",

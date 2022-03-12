@@ -6,11 +6,33 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      let i = 0;
-      console.log(msg.toString("hex"), (i += 1));
-      console.log(msg.toString("binary"), (i += 1));
-      console.log(msg.toString("base64"), (i += 1));
-      console.log(msg.toString("ascii"), (i += 1));
+      let i: [
+        | "ascii"
+        | "utf8"
+        | "utf-8"
+        | "utf16le"
+        | "ucs2"
+        | "ucs-2"
+        | "base64"
+        | "base64url"
+        | "latin1"
+        | "binary"
+        | "hex"
+      ] = [
+        "ascii",
+        "base64",
+        "base64url",
+        "binary",
+        "hex",
+        "latin1",
+        "ucs-2",
+        "utf-8",
+        "utf16le",
+        "utf8",
+      ];
+
+      i.map((b, idx) => console.log(msg.toString(b), idx));
+
       console.log(msg);
     } catch (err) {
       console.log(err);

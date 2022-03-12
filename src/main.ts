@@ -1,9 +1,22 @@
-import express from "express";
-
-const app = express();
+import net from "net";
 
 const PORT = parseInt(process.env.PORT) || 8080;
 
-app.get("", (req, res) => res.send("hey"));
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.on("data", (msg) => {
+    console.log(msg.toString());
+  });
+  socket.pipe(socket);
+});
 
-app.listen(PORT, () => console.log("start at " + PORT));
+server.listen(PORT);
+// import express from "express";
+
+// const app = express();
+
+// const PORT = parseInt(process.env.PORT) || 8080;
+
+// app.get("", (req, res) => res.send("hey"));
+
+// app.listen(PORT, () => console.log("start at " + PORT));

@@ -8,7 +8,6 @@ var server = net.createServer(function (socket) {
     console.log(msg.toString());
     console.log(msg);
     console.log(msg.toJSON());
-    console.log(JSON.parse(msg.toJSON()));
   });
   socket.pipe(socket);
 });

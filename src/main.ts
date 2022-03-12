@@ -7,6 +7,7 @@ var server = net.createServer(function (socket) {
     try {
       socket.write("Echo server\r\n");
       console.log(msg.toString());
+      console.log(msg);
     } catch (err) {
       console.log(err);
     }

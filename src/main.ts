@@ -1,37 +1,13 @@
-import express from "express";
-import cors from "cors"; //
+import net from "net";
 
-const app = express();
+const PORT = parseInt(process.env.PORT) || 3030;
 
-const PORT = process.env.PORT || 3000;
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.post("/test", (req, res) => {
-  console.log(req.body);
-  res.send({ hey: "hey" });
+var server = net.createServer(function (socket) {
+  socket.write("Echo server\r\n");
+  socket.on("data", (msg) => {
+    console.log(msg.toString());
+  });
+  socket.pipe(socket);
 });
 
-app.get("/test", (req, res) => {
-  console.log(req.params);
-  console.log(req.query);
-
-  res.send({ hey: "hey" });
-});
-
-app.get("/", (req, res) => {
-  console.log(req.params);
-  console.log(req.query);
-
-  res.send({ hey: "hey" });
-});
-
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.send({ hey: "hey" });
-});
-
-app.listen(PORT, () => {
-  console.log(PORT);
-});
+server.listen(PORT);

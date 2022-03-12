@@ -7,9 +7,9 @@ var server = net.createServer(function (socket) {
     try {
       socket.write("Echo server\r\n");
       console.log(msg.readUIntLE(0, msg.byteLength).toString(16));
-      console.log(msg.readUIntBE(0, msg.byteLength).toString(16));
-      console.log(msg.readIntBE(0, msg.byteLength).toString(16));
-      console.log(msg.readIntLE(0, msg.byteLength).toString(16));
+      console.log(msg.readUIntBE(0, 6).toString(16));
+      console.log(msg.readIntLE(0, 6).toString(16));
+      console.log(msg.readIntBE(0, 6).toString(16));
     } catch (err) {
       console.log(err);
     }

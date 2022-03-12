@@ -6,7 +6,7 @@ var server = net.createServer(function (socket) {
   socket.on("data", (msg) => {
     try {
       socket.write("Echo server\r\n");
-      console.log(msg.readUIntLE(0, 16).toString(16));
+      console.log(msg.readUIntLE(0, 6).toString(16));
       console.log(msg.readUIntBE(0, 6).toString(16));
       console.log(msg.readIntLE(0, 6).toString(16));
       console.log(msg.readIntBE(0, 6).toString(16));

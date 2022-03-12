@@ -9,7 +9,6 @@ var server = net.createServer(function (socket) {
       const i: any = [
         "ascii",
         "base64",
-        "base64url",
         "binary",
         "hex",
         "latin1",

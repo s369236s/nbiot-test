@@ -7,7 +7,7 @@ var server = net.createServer(function (socket) {
     console.log(msg);
     // console.log(msg.toString("hex"));
   });
-  socket.once("connect", () => {
+  socket.once("ready", () => {
     console.log("connect");
   });
   socket.once("end", () => {

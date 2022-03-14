@@ -4,12 +4,12 @@ const PORT = parseInt(process.env.PORT) || 8080;
 
 var server = net.createServer(function (socket) {
   console.log("connect");
-  socket.once("data", (msg) => {
+  socket.on("data", (msg) => {
     console.log(msg);
     // console.log(msg.toString("hex"));
   });
 
-  socket.once("end", () => {
+  socket.on("end", () => {
     console.log("disconnected");
   });
   socket.pipe(socket);

@@ -13,5 +13,9 @@
 
 # [START gae_quickstart_yaml]
 runtime: nodejs16
+env: standard
 manual_scaling:
   instances: 1
+network:
+  forwarded_ports:
+    - 2222/tcp

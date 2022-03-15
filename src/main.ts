@@ -8,7 +8,9 @@ var server = net.createServer(function (socket) {
     console.log("connect");
     socket.on("data", (msg) => {
       console.log(msg);
-      const writerStream = fs.createWriteStream("output.txt");
+      const writerStream = fs.createWriteStream("output.txt", {
+        flags: "a",
+      });
       writerStream.write(msg + "\n", "utf-8");
       writerStream.end();
       writerStream.on("finish", function () {
